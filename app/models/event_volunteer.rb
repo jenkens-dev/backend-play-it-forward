@@ -1,0 +1,2 @@
+class EventVolunteer < ApplicationRecord
+end
