@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 2019_12_30_171743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "event_organizations", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "organization_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "event_volunteers", force: :cascade do |t|
     t.integer "event_id"
     t.integer "volunteer_id"
@@ -33,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_171743) do
     t.string "title"
     t.string "location"
     t.string "description"
+    t.integer "organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
