@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_171743) do
 
   create_table "event_organizations", force: :cascade do |t|
     t.integer "event_id"
-    t.integer "org_id"
+    t.integer "organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
