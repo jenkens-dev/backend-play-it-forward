@@ -11,4 +11,11 @@ class OrganizationsController < ApplicationController
             render json: @organization
         end
     end
+
+    def login
+        @organization = Organization.find_by({username: params[:username]})
+        if @organization
+            render json: @organization
+        end
+    end
 end
