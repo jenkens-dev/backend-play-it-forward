@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post '/volunteers-login', to: 'volunteers#login'
+  post '/organizations-login', to: 'organizations#login'
   resources :organizations
   resources :events
   resources :volunteers
