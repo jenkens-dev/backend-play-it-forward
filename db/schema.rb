@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_30_171743) do
+ActiveRecord::Schema.define(version: 2020_01_01_210524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,23 +33,38 @@ ActiveRecord::Schema.define(version: 2019_12_30_171743) do
 
   create_table "organizations", force: :cascade do |t|
     t.string "username"
-    t.string "display_name"
-    t.string "address"
-    t.string "logo"
-    t.string "description"
-    t.string "mission"
-    t.string "contact"
+    t.string "display_name", default: ""
+    t.string "address", default: ""
+    t.string "logo", default: "https://unsplash.com/photos/SIU1Glk6v5k"
+    t.string "description", default: ""
+    t.string "mission", default: ""
+    t.string "contact", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "poems", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "modified_content"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "volunteers", force: :cascade do |t|
     t.string "username"
-    t.string "display_name"
-    t.string "image"
-    t.string "bio"
-    t.integer "points"
-    t.string "title"
+    t.string "display_name", default: ""
+    t.string "image", default: "https://unsplash.com/photos/7uSrOyY1U0I"
+    t.string "bio", default: ""
+    t.integer "points", default: 0
+    t.string "title", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
