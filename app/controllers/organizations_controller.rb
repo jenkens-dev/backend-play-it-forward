@@ -12,6 +12,11 @@ class OrganizationsController < ApplicationController
         end
     end
 
+    def show 
+        @organization = Organization.find(params[:id])
+        render json: @organization, include: [:events]
+    end
+
     def login
         @organization = Organization.find_by({username: params[:username]})
         if @organization
