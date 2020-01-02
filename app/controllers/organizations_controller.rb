@@ -5,22 +5,22 @@ class OrganizationsController < ApplicationController
     end
 
     def create 
-        @organization = Organization.new({username: params[:username]})
-        if @organization.valid? 
-            @organization.save
-            render json: @organization
+        organization = Organization.new({username: params[:username]})
+        if organization.valid? 
+            organization.save
+            render json: organization
         end
     end
 
     def show 
-        @organization = Organization.find(params[:id])
-        render json: @organization, include: [:events]
+        organization = Organization.find(params[:id])
+        render json: organization, include: [:events]
     end
 
     def login
-        @organization = Organization.find_by({username: params[:username]})
-        if @organization
-            render json: @organization
+        organization = Organization.find_by({username: params[:username]})
+        if organization
+            render json: organization
         end
     end
 end
