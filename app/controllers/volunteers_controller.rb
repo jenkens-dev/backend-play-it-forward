@@ -19,6 +19,13 @@ class VolunteersController < ApplicationController
         end
     end
 
+    def update 
+        volunteer = Volunteer.find(params[:id])
+        volunteer.bio = params[:bio]
+        volunteer.save
+        render json: volunteer
+    end
+
     def destroy 
         volunteer = Volunteer.find(params[:id])
         volunteer.destroy
